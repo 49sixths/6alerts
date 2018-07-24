@@ -1,0 +1,71 @@
+@keyframes crazyImg {
+	0% { transform: translate(-25%, -50%) rotate(-25deg) scale(.9); }
+	25% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
+	50% { transform: translate(-75%, -50%) rotate(25deg) scale(.9); }
+	75% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
+	100% { transform: translate(-25%, -50%) rotate(-25deg) scale(.9); }
+}
+
+@keyframes crazyAmount {
+	0% { transform: translate(-62%, 0%) rotate(30deg) scale(.95); }
+	25% { transform: translate(-50%, 0%) rotate(0deg) scale(1.05); }
+	50% { transform: translate(-38%, 0%) rotate(-30deg) scale(.95); }
+	75% { transform: translate(-50%, 0%) rotate(0deg) scale(1.05); }
+	100% { transform: translate(-62%, 0%) rotate(30deg) scale(.95); }
+}
+
+@keyframes crazyUsername {
+	0% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
+	25% { transform: translate(-62%, 0%) rotate(30deg) scale(1.05); }
+	50% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
+	75% { transform: translate(-38%, 0%) rotate(-30deg) scale(1.05); }
+	100% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
+}
+
+@keyframes path {
+	0% { opacity: 0; transform: translate(70vw, 10vh); }
+	25% { opacity: 1; transform: translate(75vw, 20vh); }
+	50% { opacity: 1; transform: translate(80vw, 35vh); }
+	75% { opacity: 1; transform: translate(75vw, 50vh); }
+	100% { opacity: 0; transform: translate(70vw, 70vh); }
+}
+
+.tip {
+	/* border: 2px dotted red; */
+	position: absolute;
+	width: 15vh;
+	height: 15vh;
+	animation: path 5s infinite linear;
+}
+
+
+.tip img {
+	max-width: 15vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	animation: crazyImg 1s infinite linear;
+}
+
+.tip .amount {
+	position: absolute;
+	bottom: 0vh;
+	font-size: 8vh;
+	font-family: sans-serif;
+	color: white;
+	text-shadow: 0 0 3px black;
+	font-weight: bold;
+	left: 50%;
+	animation: crazyAmount 1s infinite linear;
+}
+
+.tip .username {
+	position: absolute;
+	bottom: -3vh;
+	font-size: 7vh;
+	font-family: sans-serif;
+	color: pink;
+	left: 50%;
+	text-shadow: 0 0 3px black;
+	animation: crazyUsername 1s infinite linear;
+}

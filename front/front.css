@@ -1,0 +1,67 @@
+body {
+	font-family: sans-serif;
+}
+
+.obs-address {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	border-top: 1px solid #4466cc;
+	background:  #aaccff;
+	color: #224499;
+	text-align: center;
+	line-height: 50px;
+}
+
+/* Tip test */
+
+.tip-test {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.text-username {
+	
+}
+
+/* Login form */
+
+.login-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 100px;
+	transform: translate(-100px, -50px);
+}
+
+.username {
+	line-height: 30px;
+	height: 30px;
+	width: 200px;
+	padding: 0;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.select-user {
+	height: 30px;
+	width: 200px;
+	line-height: 30px;
+	padding: 0;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+/* Tip history */
+.tip-history {
+	position: absolute;
+	top: 65px;
+	left: 15px;
+	bottom: 65px;
+	overflow-y: auto;
+	width: 250px;
+}
