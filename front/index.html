@@ -4,34 +4,129 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>CB Tools</title>
+	<title>6alerts</title>
 </head>
 <body>
 	<style>@import 'front.css';</style>
 	
-	<h1>CB Tools</h1>
-
-		<div class="tip-test">
-		<input type="text" class="test-username" placeholder="username" value="test">
-		<input type="text" class="test-amount" placeholder="amount" value="101">
-		<button class="test-send">Test Tip</button>
-	</div>
-	
-	<br><br><br>
-	
-	<div class="login-form">
-		<input type="text" class="username" placeholder="username" value="">
-		<button class="select-user">Connect User</button>
-	</div>
-	
-	<h2 class="logged-as"></h2>
-	
-	<div class="tip-history">
+	<div class="broadcaster">
+		<div class="broadcaster-login">
+			<input type="text" name="username" class="username" placeholder="Chaturbate Username" value="">
+			<button class="login-button btn">Connect</button>
+		</div>
 		
+		<div class="broadcaster-info">
+			<span class="broadcaster-username"></span>
+		</div>
+	</div>
+
+	<nav class="tabs">
+		<a href="javascript:void(null);" class="selected" data-pane="alerts-pane">Alerts</a>
+		<a href="javascript:void(null);" data-pane="tips-pane">
+			Tips
+			<span class="counter">0</span>
+		</a>
+		<!-- <a href="javascript:void(null);" data-pane="settings-pane">Settings</a> -->
+	</nav>
+
+	<div class="panes">
+
+			<div class="pane alerts-pane selected">
+				<div class="alert-list">
+					<div class="no-alerts placeholder-text">No alerts yet!</div>
+				</div>
+				<div class="add-alert-area">
+					<button class="add-alert-button btn" disabled>Add Alert</button>
+				</div>
+			</div>
+
+		<div class="pane tips-pane">
+			<div class="tip-history">
+				<div class="no-tips placeholder-text">No tips yet!</div>
+			</div>
+			<div class="tip-test">
+				<input type="text" class="test-username" placeholder="username" value="test">
+				<input type="number" class="test-amount" placeholder="amount" value="10">
+				<button class="test-send btn">Send Test Tip</button>
+			</div>
+		</div>
+
+		<div class="pane settings-pane">
+			<div class="placeholder-text">
+				In development!
+			</div>
+		</div>
+
 	</div>
 
 	<div class="obs-address">
 		In OBS, add a Browser source to this address: <u>http://localhost:3087</u>
+	</div>
+
+	<div class="error">error</div>
+
+	<template id="alert-template">
+		<div class="alert">
+			<input type="hidden" name="id" value="">
+			<table>
+				<tr>
+					<td colspan="2" class="alert-setting-category">tip</td>
+					<td class="alert-category-separator"></td>
+					<td colspan="4" class="alert-setting-category">animation</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>min</th>
+					<th>max</th>
+					<th class="alert-category-separator"></th>
+					<th>image</th>
+					<th>main</th>
+					<th>move.</th>
+					<th>dur. (sec)</th>
+					<td rowspan="2" class="alert-remove-area">
+						<button class="alert-remove-button" tabindex="-1">x</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="number" name="min" value="1" min="1" max="999999" placeholder="1">
+					</td>
+					<td>
+						<input type="number" name="max" value="14" min="1" max="999999" placeholder="999999">
+					</td>
+					<td class="alert-category-separator"></td>
+					<td>
+						<div class="image-placeholder">
+							<input type="hidden" name="graphic">
+							<a href="javascript:void(null);" class="select" tabindex="-1">edit</a>
+							<input type="file" class="file-input" tabindex="-1">
+						</div>
+					</td>
+					<td>
+						<select name="main">
+							<option value="shake">Shake</option>
+							<option value="shrink">Shrink</option>
+							<option value="pulse">Pulse</option>
+						</select>
+					</td>
+					<td>
+						<select name="move">
+							<option value="fall">Fall</option>
+							<option value="still">Still</option>
+							<option value="arch">Arch</option>
+						</select>
+					</td>
+					<td>
+						<input type="number" name="dur" value="1" min="0.1" max="60" placeholder="999999">
+					</td>
+				</tr>
+			</table>
+		</div>
+	</template>
+
+	<div class="dev-helpers">
+		<button class="toggle-chat-window dev-helper">chat</button>
+		<button class="toggle-devtools dev-helper">devtools</button>
 	</div>
 	
 	<script src="front.js"></script>

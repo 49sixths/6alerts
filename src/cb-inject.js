@@ -1,8 +1,22 @@
 (function() {
-	const electron = require('electron');
+	const {ipcRenderer} = require('electron');
+
+
+	// User not found
+	if (!document.querySelector('#defchat')) {
+		ipcRenderer.send('user-not-found');
+		return;
+	}
+	
+	// User is offline
+	if (document.querySelector('.offline_tipping')) {
+		ipcRenderer.send('user-offline');
+		return;
+	}
+
 
 	// Remove the video element
-	const vid = document.querySelector('video');
+	const vid = document.querySelector('#still_video_container');
 	vid.parentElement.removeChild(vid);
 
 	// Select the node that will be observed for mutations
@@ -37,9 +51,9 @@
 								const tipInfo = getTextContent(newNode).match(/([^\n ]+)\ tipped\ ([0-9]+) token[s]*/);
 								if (tipInfo[1] && tipInfo[2]) {
 									// console.log('TIP ALERT', `[${tipInfo[1]}] ${tipInfo[2]}tk`);
-									electron.ipcRenderer.send('tip-alert', {
+									ipcRenderer.send('tip-alert', {
 										username: tipInfo[1],
-										amount: tipInfo[2],
+										amount: parseInt(tipInfo[2]),
 										test: false
 									});
 								}
@@ -63,7 +77,7 @@
 	// observer.disconnect();
 
 	// Send greeting
-	electron.ipcRenderer.send('watch-status', true);
+	ipcRenderer.send('watch-status', true);
 
 	function getTextContent(node) {
 		if (node.nodeType == Node.TEXT_NODE) return node.textContent;

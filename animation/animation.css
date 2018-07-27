@@ -1,50 +1,42 @@
-@keyframes crazyImg {
-	0% { transform: translate(-25%, -50%) rotate(-25deg) scale(.9); }
-	25% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
-	50% { transform: translate(-75%, -50%) rotate(25deg) scale(.9); }
-	75% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
-	100% { transform: translate(-25%, -50%) rotate(-25deg) scale(.9); }
+body {
+	margin: 0;
 }
 
-@keyframes crazyAmount {
-	0% { transform: translate(-62%, 0%) rotate(30deg) scale(.95); }
-	25% { transform: translate(-50%, 0%) rotate(0deg) scale(1.05); }
-	50% { transform: translate(-38%, 0%) rotate(-30deg) scale(.95); }
-	75% { transform: translate(-50%, 0%) rotate(0deg) scale(1.05); }
-	100% { transform: translate(-62%, 0%) rotate(30deg) scale(.95); }
-}
-
-@keyframes crazyUsername {
-	0% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
-	25% { transform: translate(-62%, 0%) rotate(30deg) scale(1.05); }
-	50% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
-	75% { transform: translate(-38%, 0%) rotate(-30deg) scale(1.05); }
-	100% { transform: translate(-50%, 0%) rotate(0deg) scale(.95); }
-}
-
-@keyframes path {
-	0% { opacity: 0; transform: translate(70vw, 10vh); }
-	25% { opacity: 1; transform: translate(75vw, 20vh); }
-	50% { opacity: 1; transform: translate(80vw, 35vh); }
-	75% { opacity: 1; transform: translate(75vw, 50vh); }
-	100% { opacity: 0; transform: translate(70vw, 70vh); }
+.animation-layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
 }
 
 .tip {
-	/* border: 2px dotted red; */
 	position: absolute;
 	width: 15vh;
 	height: 15vh;
-	animation: path 5s infinite linear;
+	animation-fill-mode: forwards !important;
+	border: 1px solid red;
 }
 
+.tip .wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	animation-fill-mode: forwards !important;
+}
 
-.tip img {
+.tip .img {
 	max-width: 15vh;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	animation: crazyImg 1s infinite linear;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+	animation-fill-mode: forwards !important;
 }
 
 .tip .amount {
@@ -56,7 +48,7 @@
 	text-shadow: 0 0 3px black;
 	font-weight: bold;
 	left: 50%;
-	animation: crazyAmount 1s infinite linear;
+	animation-fill-mode: forwards !important;
 }
 
 .tip .username {
@@ -67,5 +59,113 @@
 	color: pink;
 	left: 50%;
 	text-shadow: 0 0 3px black;
-	animation: crazyUsername 1s infinite linear;
+	animation-fill-mode: forwards !important;
 }
+
+/* Main Animation ***********************************************************/
+/****************************************************************************/
+
+/* Shake */
+
+@keyframes shakeImg {
+	0% { transform: translate(25%, 0%) rotate(-25deg) scale(.9); }
+	25% { transform: translate(0%, 0%) rotate(0deg) scale(1.1); }
+	50% { transform: translate(-25%, 0%) rotate(25deg) scale(.9); }
+	75% { transform: translate(0%, 0%) rotate(0deg) scale(1.1); }
+	100% { transform: translate(25%, 0%) rotate(-25deg) scale(.9); }
+}
+
+@keyframes shakeAmount {
+	0% { transform: translate(-12%, 0%) rotate(30deg) scale(.95); }
+	25% { transform: translate(0%, 0%) rotate(0deg) scale(1.05); }
+	50% { transform: translate(12%, 0%) rotate(-30deg) scale(.95); }
+	75% { transform: translate(0%, 0%) rotate(0deg) scale(1.05); }
+	100% { transform: translate(-12%, 0%) rotate(30deg) scale(.95); }
+}
+
+@keyframes shakeUsername {
+	0% { transform: translate(0%, 0%) rotate(0deg) scale(.95); }
+	25% { transform: translate(12%, 0%) rotate(30deg) scale(1.05); }
+	50% { transform: translate(0%, 0%) rotate(0deg) scale(.95); }
+	75% { transform: translate(12%, 0%) rotate(-30deg) scale(1.05); }
+	100% { transform: translate(0%, 0%) rotate(0deg) scale(.95); }
+}
+.shake .img { animation: shakeImg 1s infinite linear; }
+.shake .amount { animation: shakeAmount 1s infinite linear; }
+.shake .username { animation: shakeUsername 1s infinite linear; }
+
+/* Shrink */
+
+@keyframes shrink {
+	0% { transform: scale(0); }
+	10% { transform: scale(1); }
+	100% { transform: scale(.1); }
+}
+
+.shrink .wrapper {
+	animation: shrink 1 ease;
+	animation-duration: inherit;
+}
+
+/* Pulse */
+
+@keyframes pulse {
+	0% { transform: scale(.8); }
+	35% { transform: scale(1.2); }
+	100% { transform: scale(.8); }
+}
+
+.pulse .wrapper {
+	animation: pulse infinite 1s ease;
+}
+
+/* Movement and Opacity *****************************************************/
+/****************************************************************************/
+
+/* Arch */
+
+@keyframes arch-left {
+	0% { opacity: 0; transform: translate(15vw, 10vh); }
+	25% { opacity: 1; transform: translate(2vw, 20vh); }
+	50% { opacity: 1; transform: translate(0vw, 35vh); }
+	75% { opacity: 1; transform: translate(2vw, 50vh); }
+	100% { opacity: 0; transform: translate(15vw, 70vh); }
+}
+
+@keyframes arch-right {
+	0% { opacity: 0; transform: translate(-15vw, 10vh); }
+	25% { opacity: 1; transform: translate(-2vw, 20vh); }
+	50% { opacity: 1; transform: translate(0vw, 35vh); }
+	75% { opacity: 1; transform: translate(-2vw, 50vh); }
+	100% { opacity: 0; transform: translate(-15vw, 70vh); }
+}
+
+.arch.left { animation: arch-left 1 linear; }
+.arch.right { animation: arch-right 1 linear; }
+
+/* Fall */
+
+@keyframes fall-opacity {
+	/* 0% { opacity: 0; }
+	10% { opacity: 1; }
+	50% { opacity: 1; }
+	100% { opacity: 0; } */
+}
+
+@keyframes fall-path {
+	0% { transform: translateY(-20vh); }
+	100% { transform: translateY(100vh); }
+}
+
+.fall { animation: fall-opacity 1 ease, fall-path 1 ease-in; }
+
+/* Still */
+
+@keyframes still {
+	0% { opacity: 0; transform: translateY(40vh); }
+	10% { opacity: 1; transform: translateY(40vh); }
+	70% { opacity: 1; transform: translateY(40vh); }
+	100% { opacity: 0; transform: translateY(40vh); }
+}
+
+.still { animation: still 1 linear; }

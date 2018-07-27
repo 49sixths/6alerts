@@ -29,8 +29,6 @@
 		};
 
 		socket.onmessage = function (message) {
-			// try to decode json (I assume that each message
-			// from server is json)
 			var tipInfo;
 
 			try {
@@ -42,7 +40,7 @@
 			// handle incoming message
 			console.log('Websocket Message:', message.data);
 			
-			showTip(tipInfo.username, tipInfo.amount, tipInfo.graphic);
+			showTip(tipInfo);
 		};
 
 		socket.onclose = function() {
@@ -51,28 +49,76 @@
 		}
 	}
 
-	function showTip(username, amount, graphic) {
-		const tip = document.createElement('div');
-		tip.className = 'tip';
+	let lastX = 0; // 0: left, 1: right
+	const animationLayer = document.querySelector('.animation-layer');
 
-		const img = document.createElement('img');
-		img.src = graphic;
-		tip.appendChild(img);
+	function showTip(tipInfo) {
+		const tip = document.createElement('div');
+
+		tip.classList.add('tip');
+		tip.classList.add(tipInfo.main);
+		tip.classList.add(tipInfo.move);
+		tip.setAttribute('style', `animation-duration:${tipInfo.dur}s`);
+
+		const wrapper = document.createElement('div');
+		wrapper.classList.add('wrapper');
+		tip.appendChild(wrapper);
+
+		const img = document.createElement('div');
+		img.classList.add('img');
+		img.style.backgroundImage = `url(${tipInfo.graphic})`;
+		wrapper.appendChild(img);
 
 		const amt = document.createElement('div');
 		amt.className = 'amount';
-		amt.textContent = amount;
-		tip.appendChild(amt);
+		amt.textContent = tipInfo.amount;
+		wrapper.appendChild(amt);
 
 		const usr = document.createElement('div');
 		usr.className = 'username';
-		usr.textContent = username;
-		tip.appendChild(usr);
-
-		document.body.appendChild(tip);
+		usr.textContent = tipInfo.username;
+		wrapper.appendChild(usr);
+		
+		if (lastX == 0) {
+			tip.style.left = '5vw';
+			tip.classList.add('left');
+			lastX = 1;
+		} else {
+			tip.style.left = '80vw';
+			tip.classList.add('right');
+			lastX = 0;
+		}
+		
+		animationLayer.appendChild(tip);
 
 		setTimeout(function() {
-			document.body.removeChild(tip);
-		}, 5000);
+			animationLayer.removeChild(tip);
+		}, parseInt(tipInfo.dur) * 1000 + 1000);
+
+		// Center img, usr and amt
+		setTimeout(() => {
+			// img.style.marginLeft = (-img.offsetWidth/2)+'px';
+			// usr.style.marginLeft = (-usr.offsetWidth/2)+'px';
+			// amt.style.marginLeft = (-amt.offsetWidth/2)+'px';
+			
+			// img.style.marginTop = (-img.offsetHeight/2)+'px';
+			// usr.style.marginTop = (-usr.offsetHeight/2)+'px';
+			// amt.style.marginTop = (-amt.offsetHeight/2)+'px';
+		}, 50);
 	}
+
+	// setTimeout(function() { // REMOVE ME
+	// 	const img = document.querySelector('img');
+	// 	const usr = document.querySelector('.username');
+	// 	const amt = document.querySelector('.amount')
+		
+	// 	img.style.marginLeft = (-img.offsetWidth/2)+'px';
+	// 	usr.style.marginLeft = (-usr.offsetWidth/2)+'px';
+	// 	amt.style.marginLeft = (-amt.offsetWidth/2)+'px';
+		
+	// 	img.style.marginTop = (-img.offsetHeight/2)+'px';
+	// 	usr.style.marginTop = (-usr.offsetHeight/2)+'px';
+	// 	amt.style.marginTop = (-amt.offsetHeight/2)+'px';
+	// }, 0);
+
 })();
