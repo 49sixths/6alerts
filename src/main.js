@@ -21,9 +21,7 @@ const uniqid = require('uniqid');
 
 let userSettings = {alerts:[], username:''};
 
-exports.remoteLog = function(text) {
-	console.log('FROM BROWSER: ', text);
-}
+console.log('OBS Browser source root:', path.resolve(__dirname, '..', 'animation'));
 
 // Create the main window
 function createWindow () {
@@ -242,7 +240,7 @@ anim.get('/graphic/:graphic', (req, res) => {
 	res.sendFile(graphicPath);
 });
 
-anim.use(express.static('animation'));
+anim.use(express.static(path.resolve(__dirname, '..', 'animation')));
 
 anim.listen(obsPort, () => console.log(`OBS Browser Window: http://localhost:${obsPort}`));
 
