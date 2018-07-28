@@ -5,60 +5,21 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "sixths",
   "license": "ISC",
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "electron-forge": "^5.2.2",
-    "electron-prebuilt-compile": "2.0.4"
+    "electron-builder": "^20.26.0"
   },
   "build": {
     "appId": "6alerts.sixths"
   },
   "dependencies": {
-    "electron-compile": "^6.4.3",
-    "electron-squirrel-startup": "^1.0.0",
     "express": "^4.16.3",
     "uniqid": "^5.0.3",
     "ws": "^6.0.0"
-  },
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn"
-      },
-      "electronWinstallerConfig": {
-        "name": "6alerts"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "",
-        "name": ""
-      },
-      "windowsStoreConfig": {
-        "packageName": "",
-        "name": "6alerts"
-      }
-    }
   }
 }
