@@ -139,17 +139,17 @@ body {
 
 @keyframes arch-left {
 	0% { opacity: 0; transform: translate(15vw, 10vh); }
-	25% { opacity: 1; transform: translate(2vw, 20vh); }
+	25% { opacity: 1; transform: translate(5vw, 20vh); }
 	50% { opacity: 1; transform: translate(0vw, 35vh); }
-	75% { opacity: 1; transform: translate(2vw, 50vh); }
+	75% { opacity: 1; transform: translate(5vw, 50vh); }
 	100% { opacity: 0; transform: translate(15vw, 70vh); }
 }
 
 @keyframes arch-right {
 	0% { opacity: 0; transform: translate(-15vw, 10vh); }
-	25% { opacity: 1; transform: translate(-2vw, 20vh); }
+	25% { opacity: 1; transform: translate(-5vw, 20vh); }
 	50% { opacity: 1; transform: translate(0vw, 35vh); }
-	75% { opacity: 1; transform: translate(-2vw, 50vh); }
+	75% { opacity: 1; transform: translate(-5vw, 50vh); }
 	100% { opacity: 0; transform: translate(-15vw, 70vh); }
 }
 
