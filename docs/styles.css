@@ -1,0 +1,303 @@
+body, table, td {
+	margin: 0; padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	text-align: center;
+	background: #eee;
+}
+
+header {
+	overflow: hidden;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 400px;
+}
+
+header .wrapper {
+	background: linear-gradient(135deg, #7a38ff 0%,#b87fff 100%);
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	position: absolute;
+	height: 400px;
+	padding-top: 100px;
+	box-sizing: border-box;
+	top: 0;
+	left: -50vw;
+	width: 200vw;
+}
+
+.sprite-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.sprite {
+	font-family: 'Lato', sans-serif;
+	position: absolute;
+	transition-timing-function: linear;
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-size: 54px;
+	color: white;
+	text-shadow: 2px 2px 0px rgb(52, 12, 72);
+	text-align: center;
+	margin: 0;
+}
+
+h1 span {
+	color: #deff60;
+}
+
+.screenshot {
+	max-width: 50vw;
+}
+
+/* Demo */
+
+.demo {
+	font-size: 8px;
+	background-image: url('laptop@2x.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 1027px;
+	height: 556px;
+	position: absolute;
+	left: 50%;
+	margin-left: -513px;
+	top: 250px;
+}
+
+.demo .layout {
+	border-collapse: collapse;
+	background-color: white;
+	box-sizing: border-box;
+	position: absolute;
+	top: 38px;
+	left: 175px;
+	width: 676px;
+}
+
+.demo .header {
+	background: linear-gradient(to bottom, #fcefcf 0%,#dededc 100%);
+	height: 50px;
+	padding-left: 10px;
+	text-align: left;
+}
+
+.demo .header .logo {
+	max-height: 40px;
+}
+
+.demo .nav {
+	background-color: #0C6A93;
+	height: 20px;
+	border-bottom: 1px solid #f47321;
+}
+
+.demo .stream-header {
+	height: 10px;
+	background: white;
+	font-size: 6px;
+	text-align: left;
+	padding: 0 5px;
+}
+
+.demo .stream-header .hashtag {
+	color: #0a5a83;
+}
+
+.demo .stream-header .report {
+	color: #0a5a83;
+	float: right;
+}
+
+.demo .chat-header {
+	background: #7f7f7f;
+	text-align: left;
+	padding-left: 2px;
+}
+
+.demo .chat-header .tab:first-child {
+	background: white;
+}
+
+.demo .chat-header .tab {
+	background: #c9c9c9;
+	border-radius: 4px 4px 0 0;
+	display: inline-block;
+	font-size: 6px;
+	line-height: 10px;
+	padding: 0 4px;
+}
+
+.demo .stream {
+	background-image: url('dance.gif');
+	width: 400px;
+	height: 220px;
+	display: block;
+}
+
+.demo .chat {
+	width: 275px;
+	border-left: 2px solid #c9c9c9;
+	text-align: left;
+	vertical-align: top;
+	box-sizing: border-box;
+	padding: 10px 10px 0 10px;
+	height: 220px;
+}
+
+.demo .chat-list {
+	height: 210px;
+}
+
+.demo .stream-footer {
+	vertical-align: bottom;
+}
+
+.demo .stream-footer table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 6px;
+}
+
+.demo .stream-pane {
+	height: 10px;
+	width: 50%;
+}
+.demo .stream-pane.first { color: #0a5a83; }
+.demo .stream-pane.odd { background: #d5ebf8; }
+.demo .stream-pane.even { background: #f2f9fd; }
+
+.demo .tip-pane .current-tokens {
+	border-bottom: 1px solid #888;
+	margin: 0 50px;
+	text-align: left;
+}
+
+.demo .tip-pane .get-more-tokens {
+	margin: 0 50px;
+	text-align: left;
+	color: #0a5a83;
+	position: relative;
+}
+
+.demo .send-tip {
+	background: #619545;
+	color: white;
+	border-radius: 3px;
+	height: 10px;
+	line-height: 10px;
+	display: inline-block;
+	width: 32px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	bottom: -5px;
+}
+
+.demo .chat-footer {
+	height: 35px;
+	border-left: 2px solid #c9c9c9;
+}
+
+.demo .chat-footer table {
+	margin: 0 auto;
+}
+
+.demo .chat-input {
+	border: 1px solid #999;
+	height: 20px;
+	border-radius: 4px;
+	width: 220px;
+	display: inline-block;
+}
+
+.demo .chat-button {
+	background-color: #E43626;
+	border-radius: 4px;
+	height: 20px;
+	width: 35px;
+	display: inline-block;
+	color: white;
+	line-height: 22px;
+	text-align: center;
+}
+
+.demo .chat .usr { font-weight: bold; }
+.demo .chat .grey { color: grey; }
+.demo .chat .lightblue { color: #69a; }
+.demo .chat .darkblue { color: #009; }
+
+.demo .bio-header {
+	background: #7f7f7f;
+	text-align: left;
+	padding-left: 2px;
+	height: 12px;
+	vertical-align: bottom;
+	position: relative;
+}
+
+.demo .bio-header .tab:first-child {
+	background: white;
+}
+
+.demo .bio-header .tab {
+	background: #c9c9c9;
+	border-radius: 4px 4px 0 0;
+	display: inline-block;
+	font-size: 6px;
+	line-height: 10px;
+	padding: 0 4px;
+}
+
+.demo .follow-btn {
+	font-size: 6px;
+	background: #FF7C00;
+	color: white;
+	border-radius: 3px;
+	height: 10px;
+	line-height: 10px;
+	display: inline-block;
+	width: 32px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	bottom: 1px;
+}
+
+.demo .bio {
+	background: white;
+	height: 80px;
+	box-sizing: border-box;
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+}
+
+.demo .bio table {
+	margin: 5px 0 0 10px;
+}
+
+.demo .bio .fan-club {
+	color: #0a5a83;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	font-size: 6px;
+}
+
+.demo .bio .label {
+	color: #0a5a83;
+	font-size: 6px;
+}
