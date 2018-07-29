@@ -58,8 +58,10 @@ h1 span {
 	color: #deff60;
 }
 
-.screenshot {
-	max-width: 50vw;
+.intro {
+	font-size: 16px;
+	color: white;
+	text-shadow: 1px 1px 0px rgb(52, 12, 72);
 }
 
 /* Demo */
@@ -362,4 +364,10 @@ h1 span {
 	right: 0;
 	margin-left: -100%;
 	margin-right: -100%;
+}
+
+/* Details */
+
+.screenshot {
+	max-width: 50vw;
 }

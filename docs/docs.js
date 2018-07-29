@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	Number.prototype.between = function(min, max) {
 		return this >= min && this <= max;
 	}
@@ -135,7 +135,6 @@
 	}
 	
 	var alertSide = 0; //0:left, 1:right
-	var alertCanvas = document.querySelector('.tip-alert-canvas');
 	function renderAlert(usr, amount) {
 		var alert = document.createElement('div');
 		alert.classList.add('tip-alert');
@@ -162,8 +161,9 @@
 			alertSide = 0;
 		}
 
+		var alertCanvas = document.querySelector('.tip-alert-canvas');
 		alertCanvas.appendChild(alert);
-
+		
 		alert.addEventListener('animationend', function() {
 			alertCanvas.removeChild(alert);
 		});
@@ -174,4 +174,4 @@
 		randomChatMessage(true);
 	}
 
-})();
+});
