@@ -234,10 +234,13 @@ h1 span {
 	text-align: center;
 }
 
-.demo .chat .usr { font-weight: bold; }
+.demo .chat .tip { background: #ff3; }
+.demo .chat .usr { font-weight: bold; margin-right: 4px; }
 .demo .chat .grey { color: grey; }
 .demo .chat .lightblue { color: #69a; }
 .demo .chat .darkblue { color: #009; }
+.demo .chat .lightpurple { color: #be6aff; }
+.demo .chat .darkpurple { color: #804baa; }
 
 .demo .bio-header {
 	background: #7f7f7f;
