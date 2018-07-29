@@ -5,7 +5,6 @@ body, table, td {
 body {
 	font-family: sans-serif;
 	text-align: center;
-	background: #eee;
 }
 
 header {
@@ -368,6 +367,59 @@ h1 span {
 
 /* Details */
 
-.screenshot {
-	max-width: 50vw;
+main {
+	padding-top: 900px;
+}
+
+main img {
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+	max-width: 90vw;
+	margin-bottom: 100px;
+}
+
+main .step .number {
+	background-color: #666;
+	color: white;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+	width: 40px;
+	font-size: 24px;
+}
+
+main .step .description {
+	font-size: 24px;
+	color: #666;
+	margin: 20px 40px;
+}
+
+main .step.last {
+	margin: 100px 0;
+}
+
+main .download {
+	line-height: 40px;
+	background: #3c74de;
+	color: white;
+	text-align: center;
+	font-size: 16px;
+	padding: 0 20px;
+	height: 40px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+main .download:hover {
+	background-color: #5288ef;
+}
+
+main .download:active {
+	background-color: #3068d2;
+}
+
+footer {
+	font-size: 12px;
+	color: #999;
 }
