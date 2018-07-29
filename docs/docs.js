@@ -96,8 +96,8 @@
 	}
 
 	function sendNewMessage() {
-		randomChatMessage(Math.random() > 0.75);
-		var timeout = Math.floor(Math.random() * Math.floor(1500));
+		randomChatMessage(Math.random() > 0.8);
+		var timeout = Math.floor(Math.random() * Math.floor(2000));
 		setTimeout(sendNewMessage, timeout);
 	}
 	sendNewMessage();
