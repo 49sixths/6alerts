@@ -52,7 +52,6 @@
 		}, 10);
 	}
 
-
 	// Chat content
 
 	var usernames = [
@@ -61,6 +60,7 @@
 		'so_edgy666', 'funnyman', 'funklord', 'wiseguy', 'timmy'
 	];
 	var messages = [
+		'hi',
 		'wow!',
 		'so hot!',
 		'watch my cam bb',
@@ -78,8 +78,14 @@
 		'lower the music I cant hear you!',
 		'boobs',
 		'lol',
+		'рш',
+		'привет',
+		'hola',
 		'hahaha',
-		'knock knock'
+		'knock knock',
+		'open bob pls',
+		'can i send u noods',
+		'soles pls'
 	];
 	var colors = ['grey', 'lightblue', 'darkblue', 'lightpurple', 'darkpurple'];
 
