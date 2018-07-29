@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		var alertCanvas = document.querySelector('.tip-alert-canvas');
 		alertCanvas.appendChild(alert);
-		
+
 		alert.addEventListener('animationend', function() {
 			alertCanvas.removeChild(alert);
 		});
@@ -173,5 +173,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	function sendTip() {
 		randomChatMessage(true);
 	}
+
+	document.querySelector('.download').addEventListener('click', function() {
+		ga('send', 'event', 'Download', 'click');
+	});
 
 });
