@@ -96,11 +96,8 @@
 	}
 
 	function sendNewMessage() {
-		randomChatMessage(Math.random() > 0.8);
-		if (chatList.childNodes.length > 23) {
-			chatList.removeChild(chatList.childNodes[0]);
-		}
-		var timeout = Math.floor(Math.random() * Math.floor(2500));
+		randomChatMessage(Math.random() > 0.75);
+		var timeout = Math.floor(Math.random() * Math.floor(1500));
 		setTimeout(sendNewMessage, timeout);
 	}
 	sendNewMessage();
@@ -124,13 +121,57 @@
 			var tipAmount = Math.floor(Math.random() * Math.floor(100)) + 1;
 			var tipMsg = ' tipped '+tipAmount+' tokens';
 			chatMsg.appendChild(document.createTextNode(tipMsg));
+			renderAlert(usernames[nameIndex], tipAmount);
 		} else {
 			var msgIndex = Math.floor(Math.random() * Math.floor(messages.length));
 			chatMsg.appendChild(document.createTextNode(messages[msgIndex]));
 		}
 
 		chatList.appendChild(wrapper);
+
+		if (chatList.childNodes.length > 23) {
+			chatList.removeChild(chatList.childNodes[0]);
+		}
+	}
+	
+	var alertSide = 0; //0:left, 1:right
+	var alertCanvas = document.querySelector('.tip-alert-canvas');
+	function renderAlert(usr, amount) {
+		var alert = document.createElement('div');
+		alert.classList.add('tip-alert');
+		
+		var alertImg = document.createElement('div');
+		alertImg.classList.add('alert-graphic');
+		alert.appendChild(alertImg);
+		
+		var alertAmt = document.createElement('div');
+		alertAmt.classList.add('alert-amount');
+		alertAmt.textContent = amount;
+		alert.appendChild(alertAmt);
+		
+		var alertUsr = document.createElement('div');
+		alertUsr.classList.add('alert-username');
+		alertUsr.textContent = usr;
+		alert.appendChild(alertUsr);
+
+		if (alertSide == 0) {
+			alert.style.left = '10%';
+			alertSide = 1;
+		} else {
+			alert.style.left = '75%';
+			alertSide = 0;
+		}
+
+		alertCanvas.appendChild(alert);
+
+		alert.addEventListener('animationend', function() {
+			alertCanvas.removeChild(alert);
+		});
 	}
 
-	var alertSide = 0; //0:left, 1:right
+	document.querySelector('.send-tip').addEventListener('click', sendTip)
+	function sendTip() {
+		randomChatMessage(true);
+	}
+
 })();
