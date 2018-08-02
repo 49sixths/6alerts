@@ -1,12 +1,9 @@
 (function() {
 	const {ipcRenderer} = require('electron');
-
-
-	// User not found
-	if (!document.querySelector('#defchat')) {
-		ipcRenderer.send('user-not-found');
-		return;
-	}
+	const { init } = require('@sentry/electron');
+	init({
+	  dsn: 'https://2fb1f1d294414085a3d50ca80222aa0e@sentry.io/1251884',
+	});
 	
 	// User is offline
 	if (document.querySelector('.offline_tipping')) {
@@ -14,6 +11,11 @@
 		return;
 	}
 
+	// User not found
+	if (!document.querySelector('.chat-list')) {
+		ipcRenderer.send('user-not-found');
+		return;
+	}
 
 	// Remove the video element
 	const vid = document.querySelector('#still_video_container');
