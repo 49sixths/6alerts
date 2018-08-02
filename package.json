@@ -18,6 +18,7 @@
     "appId": "6alerts.sixths"
   },
   "dependencies": {
+    "@sentry/electron": "^0.8.0",
     "express": "^4.16.3",
     "uniqid": "^5.0.3",
     "ws": "^6.0.0"

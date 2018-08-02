@@ -1,4 +1,9 @@
 (function() {
+	const { init } = require('@sentry/electron');
+	init({
+	  dsn: 'https://2fb1f1d294414085a3d50ca80222aa0e@sentry.io/1251884',
+	});
+
 	const path = require('path');
 	const fs = require('fs');
 	const {ipcRenderer} = require('electron');
