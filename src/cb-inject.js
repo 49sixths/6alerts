@@ -7,12 +7,14 @@
 	
 	// User is offline
 	if (document.querySelector('.offline_tipping')) {
+		Sentry.captureMessage('User offline');
 		ipcRenderer.send('user-offline');
 		return;
 	}
 
 	// User not found
 	if (!document.querySelector('.chat-list')) {
+		Sentry.captureMessage('User not found');
 		ipcRenderer.send('user-not-found');
 		return;
 	}
