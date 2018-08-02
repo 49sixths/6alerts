@@ -82,6 +82,7 @@
 
 	// Send greeting
 	ipcRenderer.send('watch-status', true);
+	Sentry.captureMessage('Connected successfuly');
 
 	function getTextContent(node) {
 		if (node.nodeType == Node.TEXT_NODE) return node.textContent;
